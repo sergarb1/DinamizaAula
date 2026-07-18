@@ -472,7 +472,7 @@ watch(teamSize, () => {
 
             <div v-else key="idle" class="text-slate-400 py-8">
               <div class="text-6xl">{{ currentStrategy.icon }}</div>
-              <button v-if="mechanicId === 'challenge'" @click="showChallengesManager = true" class="mt-2 text-xs text-indigo-600 dark:text-indigo-400 hover:underline cursor-pointer">
+              <button v-if="mechanicId === 'challenge'" @click="showChallengesManager = true" class="mt-4 px-4 py-2 rounded-xl text-sm font-medium text-indigo-600 dark:text-indigo-400 bg-indigo-50 dark:bg-indigo-900/30 hover:bg-indigo-100 dark:hover:bg-indigo-900/50 border border-indigo-200 dark:border-indigo-800 shadow-sm transition-all cursor-pointer">
                 {{ $t('mechanicDetail.manageChallenges') }}
               </button>
             </div>

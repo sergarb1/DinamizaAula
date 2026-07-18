@@ -71,7 +71,7 @@
       { "id": "cards", "icon": "🎴", "name": "Cartas", "desc": "Cada alumno tiene una carta oculta. Púlsala para revelarla y seleccionar a ese alumno" },
       { "id": "queue", "icon": "👥", "name": "Cola", "desc": "Genera una cola ordenada de participación. Pulsa generar y ve avanzando uno a uno" },
       { "id": "teams", "icon": "⭐", "name": "Equipos", "desc": "Genera parejas, tríos o grupos equilibrados. Activa el modo capitán para elegir líder" },
-      { "id": "challenge", "icon": "🔥", "name": "Desafío", "desc": "Selecciona un alumno al azar y muestra un reto o pregunta aleatoria de los que hayas configurado" }
+      { "id": "challenge", "icon": "🔥", "name": "Desafío", "desc": "Selecciona un alumno al azar y muestra un reto o pregunta aleatoria de tu lista" }
     ]
   },
   "mechanicDetail": {

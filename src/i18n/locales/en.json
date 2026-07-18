@@ -71,7 +71,7 @@
       { "id": "cards", "icon": "🎴", "name": "Cards", "desc": "Each student has a hidden card. Tap to reveal it and select that student" },
       { "id": "queue", "icon": "👥", "name": "Queue", "desc": "Generates an ordered participation queue. Press generate and advance one by one" },
       { "id": "teams", "icon": "⭐", "name": "Teams", "desc": "Generates balanced pairs, trios or groups. Enable captain mode to pick a leader" },
-      { "id": "challenge", "icon": "🔥", "name": "Challenge", "desc": "Selects a random student and shows a random challenge or question from your configured list" }
+      { "id": "challenge", "icon": "🔥", "name": "Challenge", "desc": "Selects a random student and shows a random challenge or question from your list" }
     ]
   },
   "mechanicDetail": {
