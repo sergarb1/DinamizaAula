@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, computed, onMounted, onUnmounted } from 'vue'
+import { ref, computed, watch, onMounted, onUnmounted } from 'vue'
 import type { Student } from '../../types/student'
 import { pickRandomIndex, getAllStats } from '../../strategies/utils'
 import { playTickSound } from '../../utils/sounds'
@@ -34,6 +34,7 @@ let currentRotation = 0
 
 const spinning = ref(false)
 const isDark = ref(false)
+const labelFontSize = ref(16)
 
 const weights = computed(() => {
   if (props.students.length === 0) return []
@@ -154,7 +155,8 @@ function drawWheel(rotation: number) {
     ctx.translate(tx, ty)
     ctx.rotate(midAngle + Math.PI / 2)
 
-    const fontSize = Math.max(13, Math.min(22, (sector.endAngle - sector.startAngle) * radius.value * 0.055))
+    const baseFontSize = labelFontSize.value
+    const fontSize = Math.max(10, Math.min(32, (sector.endAngle - sector.startAngle) * radius.value * 0.055 * (baseFontSize / 14)))
     ctx.fillStyle = getTextColor(sector.color)
     ctx.font = `700 ${fontSize}px Outfit, sans-serif`
     ctx.textAlign = 'center'
@@ -283,6 +285,10 @@ function spin() {
   animate()
 }
 
+watch(labelFontSize, () => {
+  if (!spinning.value) drawWheel(currentRotation)
+})
+
 onUnmounted(() => {
   if (animFrameId) cancelAnimationFrame(animFrameId)
   resizeObs?.disconnect()
@@ -304,13 +310,27 @@ defineExpose({ spin })
       class="max-w-full h-auto cursor-pointer"
       @click="spin"
     />
-    <button
-      @click="spin"
-      :disabled="spinning"
-      class="px-8 py-3 rounded-xl bg-indigo-600 hover:bg-indigo-700 disabled:bg-slate-400 text-white font-medium shadow-md transition-all cursor-pointer disabled:cursor-not-allowed text-base"
-    >
-      {{ spinning ? $t('mechanicComponents.spinning') : $t('mechanicComponents.spin') }}
-    </button>
+    <div class="flex items-center gap-3">
+      <button
+        @click="spin"
+        :disabled="spinning"
+        class="px-8 py-3 rounded-xl bg-indigo-600 hover:bg-indigo-700 disabled:bg-slate-400 text-white font-medium shadow-md transition-all cursor-pointer disabled:cursor-not-allowed text-base"
+      >
+        {{ spinning ? $t('mechanicComponents.spinning') : $t('mechanicComponents.spin') }}
+      </button>
+      <div class="flex items-center gap-1 text-xs text-slate-500">
+        <span>🔤</span>
+        <button
+          @click="labelFontSize = Math.max(10, labelFontSize - 1)"
+          class="w-6 h-6 rounded-md border border-slate-200 dark:border-slate-600 hover:bg-indigo-100 dark:hover:bg-indigo-900/40 transition-colors cursor-pointer flex items-center justify-center"
+        >−</button>
+        <span class="w-6 text-center font-medium tabular-nums">{{ labelFontSize }}</span>
+        <button
+          @click="labelFontSize = Math.min(28, labelFontSize + 1)"
+          class="w-6 h-6 rounded-md border border-slate-200 dark:border-slate-600 hover:bg-indigo-100 dark:hover:bg-indigo-900/40 transition-colors cursor-pointer flex items-center justify-center"
+        >+</button>
+      </div>
+    </div>
     </template>
   </div>
 </template>

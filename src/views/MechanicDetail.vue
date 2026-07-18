@@ -293,7 +293,7 @@ watch(teamSize, () => {
 
     <div class="text-center">
       <h2 class="text-2xl font-bold font-outfit">{{ mechanicTitle }}</h2>
-      <p v-if="currentStrategy && isCustom" class="text-xs text-slate-400 mt-1">{{ $t('strategies.' + strategyLocaleKey(currentStrategy.id) + '.desc') }}</p>
+      <p v-if="currentStrategy" class="text-sm text-slate-500 dark:text-slate-400 mt-2 max-w-md mx-auto">{{ $t('strategies.' + strategyLocaleKey(currentStrategy.id) + '.desc') }}</p>
     </div>
 
     <div class="max-w-2xl mx-auto space-y-4">
@@ -464,9 +464,8 @@ watch(teamSize, () => {
               </Transition>
             </div>
 
-            <div v-else key="idle" class="text-slate-400 space-y-2 py-8">
-              <div class="text-6xl mb-2">{{ currentStrategy.icon }}</div>
-              <p class="text-sm max-w-md mx-auto">{{ $t('strategies.' + strategyLocaleKey(currentStrategy.id) + '.desc') }}</p>
+            <div v-else key="idle" class="text-slate-400 py-8">
+              <div class="text-6xl">{{ currentStrategy.icon }}</div>
               <button v-if="mechanicId === 'challenge'" @click="showChallengesManager = true" class="mt-2 text-xs text-indigo-600 dark:text-indigo-400 hover:underline cursor-pointer">
                 {{ $t('mechanicDetail.manageChallenges') }}
               </button>
