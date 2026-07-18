@@ -68,10 +68,10 @@
     "list": [
       { "id": "roulette", "icon": "🎡", "name": "Roulette", "desc": "The classic wheel with sectors proportional to each student's probability", "popular": true },
       { "id": "quick-pick", "icon": "🎲", "name": "Quick pick", "desc": "Press and a name appears with spectacular animation" },
-      { "id": "cards", "icon": "🎴", "name": "Cards", "desc": "Each student has a hidden card. Tap to reveal and select them" },
+      { "id": "cards", "icon": "🎴", "name": "Cards", "desc": "Each student has a hidden card. Tap to reveal it and select that student" },
       { "id": "queue", "icon": "👥", "name": "Queue", "desc": "Generates an ordered participation queue. Press generate and advance one by one" },
       { "id": "teams", "icon": "⭐", "name": "Teams", "desc": "Generates balanced pairs, trios or groups. Enable captain mode to pick a leader" },
-      { "id": "challenge", "icon": "🔥", "name": "Challenge", "desc": "Pick a student + random challenge" }
+      { "id": "challenge", "icon": "🔥", "name": "Challenge", "desc": "Selects a random student and shows a random challenge or question from your configured list" }
     ]
   },
   "mechanicDetail": {

@@ -21,7 +21,7 @@ import { useGamificationStore } from '../stores/gamification'
 import { useChallengeStore } from '../stores/challenges'
 import { playWinSound } from '../utils/sounds'
 
-const { t } = useI18n()
+const { t, tm } = useI18n()
 
 const route = useRoute()
 const router = useRouter()
@@ -52,6 +52,12 @@ const mechanicConfig: Record<string, MechanicConfig> = {
 const mechanicTitle = computed(() => {
   const key = mechanicId.replace(/-([a-z])/g, (_, c) => c.toUpperCase())
   return t('mechanicDetail.names.' + key) || t('mechanicDetail.fallbackTitle')
+})
+
+const mechanicDesc = computed(() => {
+  const list = tm('mechanics.list') as { id: string; desc: string }[]
+  const found = list.find(m => m.id === mechanicId)
+  return found?.desc || ''
 })
 
 function strategyLocaleKey(id: string): string {
@@ -293,7 +299,7 @@ watch(teamSize, () => {
 
     <div class="text-center">
       <h2 class="text-2xl font-bold font-outfit">{{ mechanicTitle }}</h2>
-      <p v-if="currentStrategy" class="text-sm text-slate-500 dark:text-slate-400 mt-2 max-w-md mx-auto">{{ $t('strategies.' + strategyLocaleKey(currentStrategy.id) + '.desc') }}</p>
+      <p v-if="mechanicDesc" class="text-sm text-slate-500 dark:text-slate-400 mt-2 max-w-md mx-auto">{{ mechanicDesc }}</p>
     </div>
 
     <div class="max-w-2xl mx-auto space-y-4">
