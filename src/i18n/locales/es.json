@@ -68,10 +68,10 @@
     "list": [
       { "id": "roulette", "icon": "🎡", "name": "Ruleta", "desc": "La clásica ruleta con sectores proporcionales a la probabilidad de cada alumno", "popular": true },
       { "id": "quick-pick", "icon": "🎲", "name": "Sorteo rápido", "desc": "Pulsa y aparece un nombre con animación espectacular" },
-      { "id": "cards", "icon": "🎴", "name": "Cartas", "desc": "Cada alumno tiene una carta oculta. Púlsala para revelarla y seleccionar a ese alumno" },
+      { "id": "cards", "icon": "🎴", "name": "Cartas", "desc": "Cada alumno aparece como una carta boca abajo. Pulsa una carta para revelarla y seleccionar al alumno. Ideal para mantener la intriga y que todos estén atentos" },
       { "id": "queue", "icon": "👥", "name": "Cola", "desc": "Genera una cola ordenada de participación. Pulsa generar y ve avanzando uno a uno" },
       { "id": "teams", "icon": "⭐", "name": "Equipos", "desc": "Genera parejas, tríos o grupos equilibrados. Activa el modo capitán para elegir líder" },
-      { "id": "challenge", "icon": "🔥", "name": "Desafío", "desc": "Selecciona un alumno al azar y muestra un reto o pregunta aleatoria de los que hayas configurado" }
+      { "id": "challenge", "icon": "🔥", "name": "Desafío", "desc": "Selecciona un alumno al azar y lanza un reto o pregunta aleatoria de tu lista personalizada. Perfecto para repasos divertidos, preguntas sorpresa o dinamizar el debate en clase" }
     ]
   },
   "mechanicDetail": {
